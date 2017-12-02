@@ -15,7 +15,6 @@ public class GameBoard {
     private int screenW, screenH;
     private int tileSize = 16;
     private ImageBuffer drawSurface;
-    private Image emptyTile = null;
     private int[][] highlight;
 
     public int previousTileSize = 0;
@@ -29,50 +28,48 @@ public class GameBoard {
         this.screenH = screenH;
         this.x = x;
         this.y = y;
-        try {
-            drawSurface = new ImageBuffer(w * tileSize, h * tileSize);
-            emptyTile = new Image("res/emptyTile.png");
-        } catch (SlickException e) {
-            e.printStackTrace();
-        }
+
+        drawSurface = new ImageBuffer(w * tileSize, h * tileSize);
+
     }
 
     public void render(Graphics g) throws SlickException {
-        drawSurface = new ImageBuffer(w * tileSize, h * tileSize);
+        fillRect(0, 0, w * tileSize, h * tileSize, drawSurface, new int[]{0, 122, 60});
         g.translate(x, y);
         for (int xx = 0; xx != w; xx++) {
             for (int yy = 0; yy != h; yy++) {
-                drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
                 if (highlight[xx][yy] == 1 || tiles[xx][yy] == 1) {
-                    fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
-                    drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
+                    fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 0, 0});
                 }
+                drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 255, 255});
             }
         }
         Image i = drawSurface.getImage();
         i.setFilter(Image.FILTER_NEAREST);
-        Image correctSize = i.getScaledCopy(screenW, screenH);
-        g.drawImage(correctSize, 0, 0);
+        i.draw(0, 0, screenW, screenH);
         g.resetTransform();
         previousTileSize = screenW / w;
         highlight = new int[w][h];
 
+    }
+
+    public void update(){
         checkForClear();
     }
 
-    private void drawRect(int x, int y, int w, int h, ImageBuffer buffer) {
+    private void drawRect(int x, int y, int w, int h, ImageBuffer buffer, int[] col) {
         for (int xX = x; xX != x + w; xX++) {
             for (int yY = y; yY != y + h; yY++) {
                 if (xX == 0 || yY == 0 || xX == (x + w) - 1 || yY == (y + h) - 1)
-                    buffer.setRGBA(xX, yY, 255, 255, 255, 255);
+                    buffer.setRGBA(xX, yY, col[0], col[1], col[2], 255);
             }
         }
     }
 
-    private void fillRect(int x, int y, int w, int h, ImageBuffer buffer) {
+    private void fillRect(int x, int y, int w, int h, ImageBuffer buffer, int[] col) {
         for (int xX = x; xX != x + w; xX++) {
             for (int yY = y; yY != y + h; yY++) {
-                buffer.setRGBA(xX, yY, 255, 0, 0, 255);
+                buffer.setRGBA(xX, yY, col[0], col[1], col[2], 255);
             }
         }
     }
@@ -188,7 +185,7 @@ public class GameBoard {
                     if (length != 0) {
                         System.out.println("Run of length " + length + " found " + x);
                         if (length >= 6)
-                            found.add(new Run(x, startY, x, startY + (length-1)));
+                            found.add(new Run(x, startY, x, startY + (length - 1)));
                         length = 0;
                     }
                 }
@@ -196,7 +193,7 @@ public class GameBoard {
             if (length != 0) {
                 System.out.println("Run of length " + length + " found " + x);
                 if (length >= 6)
-                    found.add(new Run(x, startY, x, startY + (length-1)));
+                    found.add(new Run(x, startY, x, startY + (length - 1)));
                 length = 0;
             }
         }

@@ -24,6 +24,7 @@ public class InGameState extends BasicGameState {
     private Shape currentShape;
     private Image currentShapeImage;
 
+
     @Override
     public int getID() {
         return 0;
@@ -36,52 +37,66 @@ public class InGameState extends BasicGameState {
         display = new InformationDisplay(0, 400, 480, 80);
     }
 
+    public boolean paused = false;
+
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         queue.render(graphics);
         board.render(graphics);
-        display.render(graphics);
-        Input i = gameContainer.getInput();
-        int x = i.getMouseX();
-        int y = i.getMouseY();
-        boolean inQueueArea = false;
-        if (x >= queue.getX() && x <= queue.getX() + queue.getWidth()) {
-            if (y >= queue.getY() && y <= queue.getY() + queue.getHeight()) {
-                inQueueArea = true;
-                if (currentShapeImage != null) {
+        display.render(graphics, this);
+        if (paused) {
+            graphics.drawString("PAUSED", 240, 240);
+        } else {
+            Input i = gameContainer.getInput();
+            int x = i.getMouseX();
+            int y = i.getMouseY();
+            boolean inQueueArea = false;
+            if (x >= queue.getX() && x <= queue.getX() + queue.getWidth()) {
+                if (y >= queue.getY() && y <= queue.getY() + queue.getHeight()) {
+                    inQueueArea = true;
+                    if (currentShapeImage != null) {
+                        graphics.drawImage(currentShapeImage, x, y);
+                    }
+                }
+            }
+            if (!inQueueArea && currentShape != null) {
+                int tX = x - board.getX();
+                tX /= board.previousTileSize;
+                int tY = y + board.getY();
+                tY /= board.previousTileSize;
+                System.out.println(tX + ":" + tY);
+                if (board.canPlace(currentShape, tX, tY)) {
+                    board.setHighlighted(tX, tY, currentShape);
+                } else {
                     graphics.drawImage(currentShapeImage, x, y);
                 }
             }
         }
-        if (!inQueueArea && currentShape != null) {
-            int tX = x - board.getX();
-            tX /= board.previousTileSize;
-            int tY = y + board.getY();
-            tY /= board.previousTileSize;
-            System.out.println(tX + ":" + tY);
-            if (board.canPlace(currentShape, tX, tY)) {
-                board.setHighlighted(tX,tY,currentShape);
-            } else {
-                graphics.drawImage(currentShapeImage, x, y);
-            }
-        }
     }
 
-    float timer = 0;
+    public float timer = 0;
+
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        timer += i;
-        if(timer >= 1500 || queue.isEmpty()){
-            timer = 0;
-            queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
+        if(!paused) {
+            timer += i;
+            if (timer >= 1500 || queue.isEmpty()) {
+                timer = 0;
+                queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
+            }
+            queue.update();
+            board.update();
         }
-
     }
 
 
     @Override
     public void mouseReleased(int button, int x, int y) {
         super.mousePressed(button, x, y);
+        if(paused){
+            paused = false;
+            return;
+        }
         // board.setSize(board.getW() + 1, board.getH() + 1);
         if (x >= queue.getX() && x <= queue.getX() + queue.getWidth()) {
             if (y >= queue.getY() && y <= queue.getY() + queue.getHeight()) {
@@ -90,14 +105,21 @@ public class InGameState extends BasicGameState {
                 return;
             }
         }
-        if(currentShape != null){
+        if (x >= display.getX() && x <= display.getX() + display.getWidth()) {
+            if (y >= display.getY() && y <= display.getY() + display.getHeight()) {
+                System.out.println("display click");
+                display.click(x, y, this);
+                return;
+            }
+        }
+        if (currentShape != null) {
             int tX = x - board.getX();
             tX /= board.previousTileSize;
             int tY = y + board.getY();
             tY /= board.previousTileSize;
             System.out.println(tX + ":" + tY);
             if (board.canPlace(currentShape, tX, tY)) {
-                board.placeShape(tX,tY,currentShape);
+                board.placeShape(tX, tY, currentShape);
                 currentShape = null;
                 currentShapeImage = null;
                 timer = 0;
@@ -108,10 +130,14 @@ public class InGameState extends BasicGameState {
     @Override
     public void keyPressed(int key, char c) {
         super.keyPressed(key, c);
+        if (paused) {
+            paused = false;
+            return;
+        }
         if (key == Keyboard.KEY_A) {
             queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
         }
-        if(key == Keyboard.KEY_Z){
+        if (key == Keyboard.KEY_Z) {
             board.setSize(board.getW() + 1, board.getH() + 1);
         }
     }

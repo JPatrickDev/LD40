@@ -25,6 +25,7 @@ public class ShapeQueue {
 
 
     private InGameState parent;
+
     public ShapeQueue(int x, int y, int screenW, int screenH, InGameState parent) {
         this.screenW = screenW;
         this.screenH = screenH;
@@ -43,13 +44,14 @@ public class ShapeQueue {
             Shape s = container.getShape();
             Rectangle r = container.r;
             g.drawRect(r.x, r.y, r.width, r.height);
-            Image prev = s.getPreview(16);
+            Image prev = container.image;
             g.drawImage(prev, r.x + (r.width / 2 - prev.getWidth() / 2), r.y + (r.height / 2 - prev.getHeight() / 2));
+            g.fillRect(r.x, r.y, r.width * (1 - (container.age / container.maxAge)), 5);
             yPos += screenW;
+            if(container.age > container.maxAge)
+                shapes.remove(container);
         }
         g.resetTransform();
-        moveDown();
-        checkAdd();
     }
 
     private void checkAdd() {
@@ -60,8 +62,8 @@ public class ShapeQueue {
                 return;
             }
         }
-        if(!found && !waiting.isEmpty()){
-            shapes.add(new ShapeContainer(new Rectangle(0, 0, screenW, screenW), waiting.pop()));
+        if (!found && !waiting.isEmpty()) {
+            shapes.add(new ShapeContainer(new Rectangle(0, 0, screenW, screenW), waiting.pop(), 16));
         }
     }
 
@@ -91,8 +93,16 @@ public class ShapeQueue {
         }
     }
 
+    public void update(){
+        moveDown();
+        checkAdd();
+        for (ShapeContainer container : shapes) {
+            container.age++;
+        }
+    }
+
     public void addShape(Shape shape) {
-        if(shapes.size() >= maxSize || shapes.size() + waiting.size() >= maxSize)
+        if (shapes.size() >= maxSize || shapes.size() + waiting.size() >= maxSize)
             return;
         for (ShapeContainer c : shapes) {
             if (c.r.intersects(new Rectangle(0, 0, screenW, screenW))) {
@@ -100,7 +110,7 @@ public class ShapeQueue {
                 return;
             }
         }
-        shapes.add(new ShapeContainer(new Rectangle(0, 0, screenW, screenW), shape));
+        shapes.add(new ShapeContainer(new Rectangle(0, 0, screenW, screenW), shape, 16));
     }
 
     public int getX() {
@@ -139,10 +149,14 @@ class ShapeContainer {
     Rectangle r;
     Shape shape;
     int vel = 0;
+    Image image;
+    int age = 0;
+    final float maxAge = 500;
 
-    public ShapeContainer(Rectangle r, Shape shape) {
+    public ShapeContainer(Rectangle r, Shape shape, int tileSize) {
         this.r = r;
         this.shape = shape;
+        image = shape.getPreview(tileSize);
     }
 
     public Rectangle getR() {
