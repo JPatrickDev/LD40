@@ -5,6 +5,7 @@ import me.jack.LD40.states.InGameState;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.w3c.dom.css.Rect;
 
 import java.awt.*;
@@ -18,6 +19,7 @@ public class InformationDisplay {
     private int screenW, screenH;
     private int x, y;
 
+    Image bg = null;
     Rectangle pauseButton, quitButton;
 
     public InformationDisplay(int x, int y, int screenW, int screenH) {
@@ -28,12 +30,16 @@ public class InformationDisplay {
         int bW = screenW / 4;
         pauseButton = new Rectangle(screenW - bW, 0, bW, screenH / 2);
         quitButton = new Rectangle(screenW - bW, screenH / 2, bW, screenH / 2);
+        try {
+            bg = new Image("res/infoBg.png");
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
     }
 
     public void render(Graphics g, InGameState state) {
         g.translate(x, y);
-        g.setColor(Color.orange);
-        g.fillRect(0, 0, screenW, screenH);
+        g.drawImage(bg,0,0);
         g.setColor(Color.black);
         //  g.drawString("Next Shape added in: " + (1500 - state.timer), 0, 0);
         g.fillRect(0, 20, 100, 5);

@@ -1,9 +1,11 @@
 package me.jack.LD40.level;
 
+import me.jack.LD40.Particle;
 import me.jack.LD40.level.tile.Shape;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Jack on 02/12/2017.
@@ -19,6 +21,9 @@ public class GameBoard {
 
     public int previousTileSize = 0;
 
+
+    ArrayList<Particle> p = new ArrayList<>();
+
     public GameBoard(int x, int y, int w, int h, int screenW, int screenH) {
         this.w = w;
         this.h = h;
@@ -30,6 +35,9 @@ public class GameBoard {
         this.y = y;
 
         drawSurface = new ImageBuffer(w * tileSize, h * tileSize);
+
+        //   for (int i = 0; i != 400; i++)
+        //     p.add(new Particle(screenW/2, screenH/2));
 
     }
 
@@ -47,6 +55,9 @@ public class GameBoard {
         Image i = drawSurface.getImage();
         i.setFilter(Image.FILTER_NEAREST);
         i.draw(0, 0, screenW, screenH);
+        for (Particle pa : p) {
+            pa.render(g);
+        }
         g.resetTransform();
         previousTileSize = screenW / w;
         highlight = new int[w][h];
@@ -55,6 +66,12 @@ public class GameBoard {
 
     public void update() {
         checkForClear();
+        Iterator<Particle> iterator = p.iterator();
+        while(iterator.hasNext()){
+            Particle p = iterator.next();
+            if(p.dead)
+                iterator.remove();
+        }
     }
 
 
@@ -62,8 +79,8 @@ public class GameBoard {
         int i = 0;
         for (int xX = 0; xX != w; xX++) {
             for (int yY = 0; yY != h; yY++) {
-                if(tiles[xX][yY] == 1)
-                    i+=1;
+                if (tiles[xX][yY] == 1)
+                    i += 1;
             }
         }
         return i;
@@ -211,10 +228,14 @@ public class GameBoard {
             if (r.type) {
                 for (int y = r.startY; y <= r.endY; y++) {
                     tiles[r.startX][y] = 0;
+                    for (int i = 0; i != 4; i++)
+                        p.add(new Particle(r.startX * previousTileSize, y * previousTileSize));
                 }
             } else {
                 for (int x = r.startX; x <= r.endX; x++) {
                     tiles[x][r.startY] = 0;
+                    for (int i = 0; i != 4; i++)
+                        p.add(new Particle(x * previousTileSize, r.startY * previousTileSize));
                 }
             }
         }

@@ -1,5 +1,6 @@
 package me.jack.LD40.states;
 
+import me.jack.LD40.Particle;
 import me.jack.LD40.level.GameBoard;
 import me.jack.LD40.level.InformationDisplay;
 import me.jack.LD40.level.ShapeQueue;
@@ -25,6 +26,7 @@ public class InGameState extends BasicGameState {
     private Image currentShapeImage;
 
 
+
     @Override
     public int getID() {
         return 0;
@@ -32,6 +34,7 @@ public class InGameState extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+        Particle.init();
         queue = new ShapeQueue(0, 0, 80, gameContainer.getHeight() - 80, this);
         board = new GameBoard(80, 0, 8, 8, 400, 400);
         display = new InformationDisplay(0, 400, 480, 80);
