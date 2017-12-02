@@ -42,12 +42,12 @@ public class GameBoard {
     }
 
     public void render(Graphics g) throws SlickException {
-        fillRect(0, 0, w * tileSize, h * tileSize, drawSurface, new int[]{0, 122, 60});
+        fillRect(0, 0, w * tileSize, h * tileSize, drawSurface, new int[]{0, 0, 0,0});
         g.translate(x, y);
         for (int xx = 0; xx != w; xx++) {
             for (int yy = 0; yy != h; yy++) {
                 if (highlight[xx][yy] == 1 || tiles[xx][yy] == 1) {
-                    fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 0, 0});
+                    fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 0, 0,255});
                 }
                 drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 255, 255});
             }
@@ -99,7 +99,7 @@ public class GameBoard {
     private void fillRect(int x, int y, int w, int h, ImageBuffer buffer, int[] col) {
         for (int xX = x; xX != x + w; xX++) {
             for (int yY = y; yY != y + h; yY++) {
-                buffer.setRGBA(xX, yY, col[0], col[1], col[2], 255);
+                buffer.setRGBA(xX, yY, col[0], col[1], col[2], col[3]);
             }
         }
     }

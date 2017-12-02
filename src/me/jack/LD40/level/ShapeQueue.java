@@ -5,6 +5,7 @@ import me.jack.LD40.states.InGameState;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 import java.util.ArrayDeque;
@@ -26,6 +27,7 @@ public class ShapeQueue {
     int fullCounter = 0;
 
 
+    private Image background;
     private InGameState parent;
 
     public ShapeQueue(int x, int y, int screenW, int screenH, InGameState parent) {
@@ -34,12 +36,18 @@ public class ShapeQueue {
         this.x = x;
         this.y = y;
         this.parent = parent;
+        try {
+            background = new Image("res/queueBg.png");
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
     }
 
     public void render(Graphics g) {
         g.translate(x, y);
         g.setColor(Color.gray);
         g.fillRect(0, 0, screenW, screenH);
+        g.drawImage(background,0,0);
         int yPos = 0;
         g.setColor(Color.white);
         for (ShapeContainer container : shapes) {

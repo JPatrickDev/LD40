@@ -19,7 +19,7 @@ public class InformationDisplay {
     private int screenW, screenH;
     private int x, y;
 
-    Image bg = null;
+    Image bg = null, pause = null, quit = null;
     Rectangle pauseButton, quitButton;
 
     public InformationDisplay(int x, int y, int screenW, int screenH) {
@@ -32,6 +32,8 @@ public class InformationDisplay {
         quitButton = new Rectangle(screenW - bW, screenH / 2, bW, screenH / 2);
         try {
             bg = new Image("res/infoBg.png");
+            pause = new Image("res/pauseButton.png");
+            quit = new Image("res/quitButton.png");
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -39,7 +41,7 @@ public class InformationDisplay {
 
     public void render(Graphics g, InGameState state) {
         g.translate(x, y);
-        g.drawImage(bg,0,0);
+        g.drawImage(bg, 0, 0);
         g.setColor(Color.black);
         //  g.drawString("Next Shape added in: " + (1500 - state.timer), 0, 0);
         g.fillRect(0, 20, 100, 5);
@@ -49,9 +51,10 @@ public class InformationDisplay {
         g.drawString("Next Shape:", 0, 0);
         g.drawString("Score:" + state.score, 0, 40);
         g.drawString("Timer: " + state.counter, 0, 60);
-        drawButton(g, pauseButton, "Pause");
-        drawButton(g, quitButton, "Quit");
-
+        //    drawButton(g, pauseButton, "Pause");
+        // drawButton(g, quitButton, "Quit");
+        g.drawImage(pause, pauseButton.x, pauseButton.y);
+        g.drawImage(quit, quitButton.x, quitButton.y);
 
         g.resetTransform();
     }

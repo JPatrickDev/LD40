@@ -34,3 +34,6 @@
 
 - Drag and drop instead of clicking
 
+- Button textures
+- Text is very hard to read inside the info display
+- Snow effect behind the board
