@@ -16,10 +16,10 @@
           X
           X
 
-- If the queue is empty a new shape should be added automatically
-- Tile grid
-- Mechanic for tiles to clear
-    - X tiles in a row
+- If the queue is empty a new shape should be added automatically/
+- Tile grid/
+- Mechanic for tiles to clear/
+    - X tiles in a row/
 - Information area
     - Should show a countdown till the next shape is added
     - Pause/Quit buttons
@@ -27,3 +27,4 @@
     - Current score?
 
 - Shapes should disappear from the queue after a while
+    - Should show this with a loading bar on each shape in the queue

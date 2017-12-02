@@ -132,6 +132,7 @@ public class ShapeQueue {
     public boolean isEmpty() {
         return shapes.isEmpty() && waiting.isEmpty();
     }
+
 }
 
 class ShapeContainer {

@@ -3,6 +3,8 @@ package me.jack.LD40.level;
 import me.jack.LD40.level.tile.Shape;
 import org.newdawn.slick.*;
 
+import java.util.ArrayList;
+
 /**
  * Created by Jack on 02/12/2017.
  */
@@ -43,6 +45,7 @@ public class GameBoard {
                 drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
                 if (highlight[xx][yy] == 1 || tiles[xx][yy] == 1) {
                     fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
+                    drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
                 }
             }
         }
@@ -53,6 +56,8 @@ public class GameBoard {
         g.resetTransform();
         previousTileSize = screenW / w;
         highlight = new int[w][h];
+
+        checkForClear();
     }
 
     private void drawRect(int x, int y, int w, int h, ImageBuffer buffer) {
@@ -137,5 +142,92 @@ public class GameBoard {
         } catch (Exception e) {
             //TODO - Fix
         }
+    }
+
+    public void checkForClear() {
+        ArrayList<Run> found = new ArrayList<>();
+        for (int y = 0; y != h; y++) {
+            int length = 0;
+            int startX = 0;
+            for (int x = 0; x != w; x++) {
+                if (tiles[x][y] == 1) {
+                    startX = x;
+                    length = 1;
+                    while ((x + 1) < w && tiles[x + 1][y] == 1) {
+                        length++;
+                        x++;
+                    }
+                } else {
+                    if (length != 0) {
+                        System.out.println("Run of length " + length + " found " + y);
+                        if (length >= 6)
+                            found.add(new Run(startX, y, startX + (length - 1), y));
+                        length = 0;
+                    }
+                }
+            }
+            if (length != 0) {
+                System.out.println("Run of length " + length + " found " + y);
+                if (length >= 6)
+                    found.add(new Run(startX, y, startX + (length - 1), y));
+                length = 0;
+            }
+        }
+        for (int x = 0; x != w; x++) {
+            int length = 0;
+            int startY = 0;
+            for (int y = 0; y != h; y++) {
+                if (tiles[x][y] == 1) {
+                    startY = y;
+                    length = 1;
+                    while ((y + 1) < h && tiles[x][y + 1] == 1) {
+                        length++;
+                        y++;
+                    }
+                } else {
+                    if (length != 0) {
+                        System.out.println("Run of length " + length + " found " + x);
+                        if (length >= 6)
+                            found.add(new Run(x, startY, x, startY + (length-1)));
+                        length = 0;
+                    }
+                }
+            }
+            if (length != 0) {
+                System.out.println("Run of length " + length + " found " + x);
+                if (length >= 6)
+                    found.add(new Run(x, startY, x, startY + (length-1)));
+                length = 0;
+            }
+        }
+
+        for (Run r : found) {
+            if (r.type) {
+                for (int y = r.startY; y <= r.endY; y++) {
+                    tiles[r.startX][y] = 0;
+                }
+            } else {
+                for (int x = r.startX; x <= r.endX; x++) {
+                    tiles[x][r.startY] = 0;
+                }
+            }
+        }
+    }
+}
+
+class Run {
+    int startX, startY;
+    int endX, endY;
+    boolean type;
+
+    public Run(int startX, int startY, int endX, int endY) {
+        this.startX = startX;
+        this.startY = startY;
+        this.endX = endX;
+        this.endY = endY;
+        if (startX == endX)
+            type = true;
+        else if (startY == endY)
+            type = false;
     }
 }
