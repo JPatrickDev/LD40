@@ -41,7 +41,8 @@ public class InformationDisplay {
         g.fillRect(0, 20, 100 * (1 - (state.timer / 1500.0f)), 5);
         g.setColor(Color.black);
         g.drawString("Next Shape:", 0, 0);
-
+        g.drawString("Score:" + state.score, 0, 40);
+        g.drawString("Timer: " + state.counter, 0, 60);
         drawButton(g, pauseButton, "Pause");
         drawButton(g, quitButton, "Quit");
 
@@ -58,13 +59,14 @@ public class InformationDisplay {
         g.drawString(text, (float) (rectangle.x + (rectangle.getWidth() / 2) - g.getFont().getWidth(text) / 2), (float) (rectangle.y + (rectangle.getHeight() / 2) - g.getFont().getLineHeight() / 2));
     }
 
-    public void click(int x,int y,InGameState state){
+    public void click(int x, int y, InGameState state) {
         x -= getX();
         y -= getY();
-        if(pauseButton.contains(x,y)){
+        if (pauseButton.contains(x, y)) {
             state.paused = true;
         }
     }
+
     public int getX() {
         return x;
     }

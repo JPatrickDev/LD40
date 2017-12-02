@@ -24,7 +24,10 @@
     - Should show a countdown till the next shape is added/
     - Pause/Quit buttons/
     - Next shape?
-    - Current score?
+    - Current score?/
+        - Should take time in to account as well
 
 - Shapes should disappear from the queue after a while/
     - Should show this with a loading bar on each shape in the queue/
+
+- Game over if the queue is full for more than X seconds

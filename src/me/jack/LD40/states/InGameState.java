@@ -33,7 +33,7 @@ public class InGameState extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         queue = new ShapeQueue(0, 0, 80, gameContainer.getHeight() - 80, this);
-        board = new GameBoard(80, 0, 10, 10, 400, 400);
+        board = new GameBoard(80, 0, 8, 8, 400, 400);
         display = new InformationDisplay(0, 400, 480, 80);
     }
 
@@ -75,17 +75,23 @@ public class InGameState extends BasicGameState {
     }
 
     public float timer = 0;
+    public float counter = 0;
+    public float score = 0;
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        if(!paused) {
+        if (!paused) {
             timer += i;
+            counter += i;
+            System.out.println(board.count() + ":" + counter);
             if (timer >= 1500 || queue.isEmpty()) {
                 timer = 0;
                 queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
             }
-            queue.update();
+            queue.update(i, this);
             board.update();
+            if (counter != 0)
+                score += (board.count() / counter) * 100;
         }
     }
 
@@ -93,7 +99,7 @@ public class InGameState extends BasicGameState {
     @Override
     public void mouseReleased(int button, int x, int y) {
         super.mousePressed(button, x, y);
-        if(paused){
+        if (paused) {
             paused = false;
             return;
         }
@@ -125,6 +131,16 @@ public class InGameState extends BasicGameState {
                 timer = 0;
             }
         }
+    }
+
+    public void startGame() {
+        queue.empty();
+        board.clear();
+        timer = 0;
+        counter = 0;
+        score = 0;
+        currentShape = null;
+        currentShapeImage = null;
     }
 
     @Override

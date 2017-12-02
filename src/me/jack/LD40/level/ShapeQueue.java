@@ -23,6 +23,8 @@ public class ShapeQueue {
     CopyOnWriteArrayList<ShapeContainer> shapes = new CopyOnWriteArrayList<>();
     int maxSize = 5;
 
+    int fullCounter = 0;
+
 
     private InGameState parent;
 
@@ -41,16 +43,18 @@ public class ShapeQueue {
         int yPos = 0;
         g.setColor(Color.white);
         for (ShapeContainer container : shapes) {
-            Shape s = container.getShape();
             Rectangle r = container.r;
             g.drawRect(r.x, r.y, r.width, r.height);
             Image prev = container.image;
             g.drawImage(prev, r.x + (r.width / 2 - prev.getWidth() / 2), r.y + (r.height / 2 - prev.getHeight() / 2));
             g.fillRect(r.x, r.y, r.width * (1 - (container.age / container.maxAge)), 5);
             yPos += screenW;
-            if(container.age > container.maxAge)
+            if (container.age > container.maxAge)
                 shapes.remove(container);
         }
+        g.setColor(Color.red);
+        if (fullCounter != 0)
+            g.fillRect(0, 0, 5, screenH * (1 - (fullCounter / 5000.0f)));
         g.resetTransform();
     }
 
@@ -93,11 +97,20 @@ public class ShapeQueue {
         }
     }
 
-    public void update(){
+    public void update(int delta, InGameState state) {
         moveDown();
         checkAdd();
         for (ShapeContainer container : shapes) {
             container.age++;
+        }
+        if (shapes.size() == maxSize) {
+            fullCounter += delta;
+        } else {
+            fullCounter = 0;
+        }
+        if (fullCounter >= 5000) {
+            System.out.println("Game over");
+            state.startGame();
         }
     }
 
@@ -143,6 +156,12 @@ public class ShapeQueue {
         return shapes.isEmpty() && waiting.isEmpty();
     }
 
+    public void empty() {
+        shapes.clear();
+        ;
+        waiting.clear();
+        fullCounter = 0;
+    }
 }
 
 class ShapeContainer {
@@ -151,7 +170,7 @@ class ShapeContainer {
     int vel = 0;
     Image image;
     int age = 0;
-    final float maxAge = 500;
+    final float maxAge = 2000.0f;
 
     public ShapeContainer(Rectangle r, Shape shape, int tileSize) {
         this.r = r;

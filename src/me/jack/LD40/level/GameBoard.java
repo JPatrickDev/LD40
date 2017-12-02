@@ -53,9 +53,22 @@ public class GameBoard {
 
     }
 
-    public void update(){
+    public void update() {
         checkForClear();
     }
+
+
+    public int count() {
+        int i = 0;
+        for (int xX = 0; xX != w; xX++) {
+            for (int yY = 0; yY != h; yY++) {
+                if(tiles[xX][yY] == 1)
+                    i+=1;
+            }
+        }
+        return i;
+    }
+
 
     private void drawRect(int x, int y, int w, int h, ImageBuffer buffer, int[] col) {
         for (int xX = x; xX != x + w; xX++) {
@@ -156,16 +169,14 @@ public class GameBoard {
                     }
                 } else {
                     if (length != 0) {
-                        System.out.println("Run of length " + length + " found " + y);
-                        if (length >= 6)
+                        if (length >= 7)
                             found.add(new Run(startX, y, startX + (length - 1), y));
                         length = 0;
                     }
                 }
             }
             if (length != 0) {
-                System.out.println("Run of length " + length + " found " + y);
-                if (length >= 6)
+                if (length >= 7)
                     found.add(new Run(startX, y, startX + (length - 1), y));
                 length = 0;
             }
@@ -183,16 +194,14 @@ public class GameBoard {
                     }
                 } else {
                     if (length != 0) {
-                        System.out.println("Run of length " + length + " found " + x);
-                        if (length >= 6)
+                        if (length >= 7)
                             found.add(new Run(x, startY, x, startY + (length - 1)));
                         length = 0;
                     }
                 }
             }
             if (length != 0) {
-                System.out.println("Run of length " + length + " found " + x);
-                if (length >= 6)
+                if (length >= 7)
                     found.add(new Run(x, startY, x, startY + (length - 1)));
                 length = 0;
             }
@@ -209,6 +218,11 @@ public class GameBoard {
                 }
             }
         }
+    }
+
+    public void clear() {
+        tiles = new int[w][h];
+        highlight = new int[w][h];
     }
 }
 
