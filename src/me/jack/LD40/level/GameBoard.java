@@ -38,7 +38,9 @@ public class GameBoard {
                 drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface);
             }
         }
-        Image correctSize = drawSurface.getImage().getScaledCopy(screenW, screenH);
+        Image i = drawSurface.getImage();
+        i.setFilter(Image.FILTER_NEAREST);
+        Image correctSize = i.getScaledCopy(screenW, screenH);
         g.drawImage(correctSize, 0, 0);
         g.resetTransform();
     }

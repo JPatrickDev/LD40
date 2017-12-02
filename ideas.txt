@@ -14,3 +14,5 @@ Could be colour based somehow?
         - "opposite" colours cancel each other out maybe?
 Score is based on your average number of tiles on the board, would help fit the theme.
     - Would definitely have to make the queue not filling up thing or a high score could be done by AFKing for ages
+Shapes should eventually time out of the queue
+    - Not quickly enough to save you from losing if you AFK
