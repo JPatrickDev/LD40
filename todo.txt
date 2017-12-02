@@ -1,0 +1,29 @@
+- More Shapes
+    - Mirrors of each shape
+        - X
+          X
+          XX
+
+          X
+          X
+         XX
+
+         XX
+         X
+         X
+
+         XX
+          X
+          X
+
+- If the queue is empty a new shape should be added automatically
+- Tile grid
+- Mechanic for tiles to clear
+    - X tiles in a row
+- Information area
+    - Should show a countdown till the next shape is added
+    - Pause/Quit buttons
+    - Next shape?
+    - Current score?
+
+- Shapes should disappear from the queue after a while

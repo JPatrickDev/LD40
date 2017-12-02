@@ -71,7 +71,7 @@ public class InGameState extends BasicGameState {
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
         timer += i;
-        if(timer >= 1500){
+        if(timer >= 1500 || queue.isEmpty()){
             timer = 0;
             queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
         }
