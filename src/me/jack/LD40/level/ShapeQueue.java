@@ -1,6 +1,7 @@
 package me.jack.LD40.level;
 
 import me.jack.LD40.level.tile.Shape;
+import me.jack.LD40.states.InGameState;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -23,11 +24,13 @@ public class ShapeQueue {
     int maxSize = 5;
 
 
-    public ShapeQueue(int x, int y, int screenW, int screenH) {
+    private InGameState parent;
+    public ShapeQueue(int x, int y, int screenW, int screenH, InGameState parent) {
         this.screenW = screenW;
         this.screenH = screenH;
         this.x = x;
         this.y = y;
+        this.parent = parent;
     }
 
     public void render(Graphics g) {
@@ -121,6 +124,7 @@ public class ShapeQueue {
             if (c.r.contains(x, y)) {
                 System.out.println("Shape clicked");
                 shapes.remove(c);
+                parent.setCurrentShape(c.getShape());
             }
         }
     }

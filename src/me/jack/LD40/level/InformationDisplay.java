@@ -25,7 +25,7 @@ public class InformationDisplay {
 
     public void render(Graphics g) {
         g.translate(x, y);
-        g.setColor(Color.red);
+        g.setColor(Color.orange);
         g.fillRect(0, 0, screenW, screenH);
         g.resetTransform();
     }
