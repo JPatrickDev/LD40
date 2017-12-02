@@ -1,0 +1,16 @@
+Theme: The more you have, the worse it is.
+
+You start with X amount of something.
+You have to get rid of it ASAP, you collect more over time.
+At the end the less you have in your possession, the better your score.
+
+Tetris type thing? :
+Have to place pieces on the board, can't let it fill up
+Also can't let your queue of placeable shapes fill up
+Board could grow/shrink over time
+    - Powerups to let you do that?
+Could be colour based somehow?
+    - Adjacent tiles of the same colour disappear
+        - "opposite" colours cancel each other out maybe?
+Score is based on your average number of tiles on the board, would help fit the theme.
+    - Would definitely have to make the queue not filling up thing or a high score could be done by AFKing for ages
