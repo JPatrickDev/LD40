@@ -57,7 +57,7 @@ public class InGameState extends BasicGameState {
             graphics.fillRect(0, 0, 480, 480);
             graphics.drawImage(gameOverImg, 240 - gameOverImg.getWidth() / 2, 240 - gameOverImg.getHeight() / 2);
             graphics.setColor(Color.white);
-            graphics.drawString(score + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(score + "") / 2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
+            graphics.drawString(Math.round(score) + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(score + "") / 2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
             return;
         }
         if (paused) {
