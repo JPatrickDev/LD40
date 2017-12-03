@@ -35,7 +35,7 @@
 - Drag and drop instead of clicking
 
 - Button textures/
-- Text is very hard to read inside the info display
+- Text is very hard to read inside the info display/
 - Snow effect behind the board /
     - Could do with improving
 - Shapes should be able to define their placement tile./
