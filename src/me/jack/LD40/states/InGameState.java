@@ -121,6 +121,11 @@ public class InGameState extends BasicGameState {
             paused = false;
             return;
         }
+        if (gameOver) {
+            gameOver = false;
+            startGame();
+            return;
+        }
         // board.setSize(board.getW() + 1, board.getH() + 1);
         if (x >= queue.getX() && x <= queue.getX() + queue.getWidth()) {
             if (y >= queue.getY() && y <= queue.getY() + queue.getHeight()) {

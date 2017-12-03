@@ -1,5 +1,5 @@
-- More Shapes
-    - Mirrors of each shape
+- More Shapes/
+    - Mirrors of each shape/
         - X
           X
           XX
