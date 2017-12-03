@@ -1,5 +1,6 @@
 package me.jack.LD40;
 
+import me.jack.LD40.states.AboutState;
 import me.jack.LD40.states.InGameState;
 import me.jack.LD40.states.MainMenuState;
 import org.newdawn.slick.Game;
@@ -19,5 +20,6 @@ public class LD40 extends StateBasedGame {
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         addState(new MainMenuState());
         addState(new InGameState());
+        addState(new AboutState());
     }
 }

@@ -118,7 +118,6 @@ public class ShapeQueue {
             fullCounter = 0;
         }
         if (fullCounter >= 5000) {
-            System.out.println("Game over");
             state.gameOver();
         }
     }
@@ -154,7 +153,6 @@ public class ShapeQueue {
     public void click(int x, int y) {
         for (ShapeContainer c : shapes) {
             if (c.r.contains(x, y)) {
-                System.out.println("Shape clicked");
                 shapes.remove(c);
                 parent.setCurrentShape(c.getShape());
             }

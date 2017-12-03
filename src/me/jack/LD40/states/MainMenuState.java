@@ -15,8 +15,9 @@ import java.awt.*;
 public class MainMenuState extends BasicGameState {
 
     Image image;
-    boolean go = false;
+    boolean mainMenu = false,aboutMenu = false;
     Rectangle play = new Rectangle(70,124,340,98);
+    Rectangle about = new Rectangle(70,306,340,98);
     @Override
     public int getID() {
         return 1;
@@ -34,8 +35,14 @@ public class MainMenuState extends BasicGameState {
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        if(go)
+        if(mainMenu) {
             stateBasedGame.enterState(0);
+            mainMenu = false;
+        }
+        if(aboutMenu) {
+            stateBasedGame.enterState(2);
+            aboutMenu = false;
+        }
     }
 
     @Override
@@ -43,7 +50,11 @@ public class MainMenuState extends BasicGameState {
         super.mouseReleased(button, x, y);
         if(play.contains(x,y)){
             InGameState.sounds.get("place").play();
-            go = true;
+            mainMenu = true;
+        }
+        if(about.contains(x,y)){
+            InGameState.sounds.get("place").play();
+            aboutMenu = true;
         }
     }
 }

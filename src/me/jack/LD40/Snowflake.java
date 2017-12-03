@@ -15,7 +15,8 @@ public class Snowflake {
     private float age;
     private static Image img;
     public boolean dead = false;
-    Random r= new Random();
+    Random r = new Random();
+
     public Snowflake(int x, int y) throws SlickException {
         this.x = x;
         this.y = y;
@@ -24,6 +25,9 @@ public class Snowflake {
     }
 
     public void render(Graphics g) {
+        if(x < 0) {
+            xVel = 0.25f;
+        }
         g.drawImage(img, x, y);
     }
 
@@ -31,12 +35,12 @@ public class Snowflake {
         y += yVel;
         x += xVel;
         yVel += 0.01;
-        xVel = (float) Math.sin(Math.toRadians(age)) * 3;
+        if (r.nextInt(20) == 0)
+            xVel = (float) Math.sin(Math.toRadians(age)) * 0.5f;
         age += r.nextInt(20);
         if (age > 360)
             age = 0;
         if (y > 480) {
-            System.out.println("Dead");
             dead = true;
         }
     }

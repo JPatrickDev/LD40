@@ -37,12 +37,7 @@ public class GameBoard {
         this.screenH = screenH;
         this.x = x;
         this.y = y;
-
         drawSurface = new ImageBuffer(w * tileSize, h * tileSize);
-
-        //   for (int i = 0; i != 400; i++)
-        //     p.add(new Particle(screenW/2, screenH/2));
-
     }
 
     public void render(Graphics g) throws SlickException {
@@ -177,7 +172,6 @@ public class GameBoard {
                 }
             }
         } catch (Exception e) {
-            //TODO - Fix
         }
     }
 
@@ -191,7 +185,6 @@ public class GameBoard {
                 }
             }
         } catch (Exception e) {
-            //TODO - Fix
         }
     }
 

@@ -56,22 +56,12 @@ public class InformationDisplay {
         long minutes = (long) ((state.counter / 1000)  / 60);
         int seconds = (int) ((state.counter / 1000) % 60);
         g.drawString("Timer: " + minutes + ":" + seconds, 8, 55);
-        //    drawButton(g, pauseButton, "Pause");
-        // drawButton(g, quitButton, "Quit");
         g.drawImage(pause, pauseButton.x, pauseButton.y);
         g.drawImage(quit, quitButton.x, quitButton.y);
         fireplace.draw(196,0);
         g.resetTransform();
     }
 
-    public void drawButton(Graphics g, Rectangle rectangle, String text) {
-        g.setColor(Color.gray);
-        g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        g.setColor(Color.black);
-        g.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        g.setColor(Color.white);
-        g.drawString(text, (float) (rectangle.x + (rectangle.getWidth() / 2) - g.getFont().getWidth(text) / 2), (float) (rectangle.y + (rectangle.getHeight() / 2) - g.getFont().getLineHeight() / 2));
-    }
 
     public void click(int x, int y, InGameState state) {
         x -= getX();

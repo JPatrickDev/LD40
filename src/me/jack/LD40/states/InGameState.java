@@ -108,7 +108,6 @@ public class InGameState extends BasicGameState {
         if (!paused && !gameOver) {
             timer += i;
             counter += i;
-            System.out.println(board.count() + ":" + counter);
             if (timer >= 1500 || queue.isEmpty()) {
                 timer = 0;
                 queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
@@ -138,14 +137,12 @@ public class InGameState extends BasicGameState {
         // board.setSize(board.getW() + 1, board.getH() + 1);
         if (x >= queue.getX() && x <= queue.getX() + queue.getWidth()) {
             if (y >= queue.getY() && y <= queue.getY() + queue.getHeight()) {
-                System.out.println("Queue click");
                 queue.click(x, y);
                 return;
             }
         }
         if (x >= display.getX() && x <= display.getX() + display.getWidth()) {
             if (y >= display.getY() && y <= display.getY() + display.getHeight()) {
-                System.out.println("display click");
                 display.click(x, y, this);
                 return;
             }
@@ -157,7 +154,6 @@ public class InGameState extends BasicGameState {
             tY /= board.previousTileSize;
             tX -= currentShape.selectX;
             tY -= currentShape.selectY;
-            System.out.println(tX + ":" + tY);
             if (board.canPlace(currentShape, tX, tY)) {
                 board.placeShape(tX, tY, currentShape);
                 currentShape = null;
