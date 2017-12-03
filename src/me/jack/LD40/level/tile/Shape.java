@@ -14,13 +14,19 @@ public class Shape {
     public static Shape[] shapes;
 
     static {
-        shapes = new Shape[3];
+        shapes = new Shape[5];
         shapes[0] = new Shape(2, 2);
         shapes[0].setShape(new int[][]{{1, 1}, {1, 1}});
         shapes[1] = new Shape(2, 4);
         shapes[1].setShape(new int[][]{{1, 1, 1, 1}, {0, 0, 0, 1}});
         shapes[2] = new Shape(1, 4);
         shapes[2].setShape(new int[][]{{1, 1, 1, 1}});
+
+        shapes[3] = new Shape(2, 4);
+        shapes[3].setShape(new int[][]{{0, 0, 0, 1}, {1, 1, 1, 1}});
+
+        shapes[4] = new Shape(3, 2);
+        shapes[4].setShape(new int[][]{{0, 1}, {1, 1},{0,1}});
     }
 
     public Shape(int w, int h) {

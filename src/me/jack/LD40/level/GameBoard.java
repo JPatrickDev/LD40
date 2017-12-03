@@ -1,11 +1,13 @@
 package me.jack.LD40.level;
 
 import me.jack.LD40.Particle;
+import me.jack.LD40.Snowflake;
 import me.jack.LD40.level.tile.Shape;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Created by Jack on 02/12/2017.
@@ -23,6 +25,7 @@ public class GameBoard {
 
 
     ArrayList<Particle> p = new ArrayList<>();
+    ArrayList<Snowflake> snow = new ArrayList<>();
 
     public GameBoard(int x, int y, int w, int h, int screenW, int screenH) {
         this.w = w;
@@ -42,12 +45,16 @@ public class GameBoard {
     }
 
     public void render(Graphics g) throws SlickException {
-        fillRect(0, 0, w * tileSize, h * tileSize, drawSurface, new int[]{0, 0, 0,0});
+        fillRect(0, 0, w * tileSize, h * tileSize, drawSurface, new int[]{0, 0, 0, 0});
         g.translate(x, y);
+        for (Snowflake f : snow) {
+            f.update();
+            f.render(g);
+        }
         for (int xx = 0; xx != w; xx++) {
             for (int yy = 0; yy != h; yy++) {
                 if (highlight[xx][yy] == 1 || tiles[xx][yy] == 1) {
-                    fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 0, 0,255});
+                    fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 0, 0, 255});
                 }
                 drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 255, 255});
             }
@@ -55,6 +62,7 @@ public class GameBoard {
         Image i = drawSurface.getImage();
         i.setFilter(Image.FILTER_NEAREST);
         i.draw(0, 0, screenW, screenH);
+        i = null;
         for (Particle pa : p) {
             pa.render(g);
         }
@@ -67,10 +75,25 @@ public class GameBoard {
     public void update() {
         checkForClear();
         Iterator<Particle> iterator = p.iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Particle p = iterator.next();
-            if(p.dead)
+            if (p.dead)
                 iterator.remove();
+        }
+        Iterator<Snowflake> siterator = snow.iterator();
+        while (iterator.hasNext()) {
+            Snowflake p = siterator.next();
+            if (p.dead)
+                siterator.remove();
+        }
+        Random r = new Random();
+        try {
+            for (int i = 0; i != 3; i++) {
+                int x = r.nextInt(screenW);
+                snow.add(new Snowflake(x, -20));
+            }
+        } catch (SlickException e) {
+            e.printStackTrace();
         }
     }
 
