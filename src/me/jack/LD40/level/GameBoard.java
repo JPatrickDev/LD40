@@ -55,7 +55,7 @@ public class GameBoard {
                 if (highlight[xx][yy] == 1 || tiles[xx][yy] == 1) {
                     fillRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 0, 0, 255});
                 }
-                drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{255, 255, 255});
+                drawRect(xx * tileSize, yy * tileSize, tileSize, tileSize, drawSurface, new int[]{120, 120, 120});
             }
         }
         Image i = drawSurface.getImage();

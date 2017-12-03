@@ -45,3 +45,6 @@
 - Sound
 - More particle types
     - Holly
+- Points for clearing tiles
+  - More points for clearing lots in one go
+- Fireplace in GUI

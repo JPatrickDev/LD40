@@ -2,10 +2,10 @@ package me.jack.LD40.level;
 
 import me.jack.LD40.level.tile.Shape;
 import me.jack.LD40.states.InGameState;
+import org.newdawn.slick.*;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.w3c.dom.css.Rect;
 
 import java.awt.*;
@@ -21,7 +21,7 @@ public class InformationDisplay {
 
     Image bg = null, pause = null, quit = null;
     Rectangle pauseButton, quitButton;
-
+    Animation fireplace = null;
     public InformationDisplay(int x, int y, int screenW, int screenH) {
         this.screenW = screenW;
         this.screenH = screenH;
@@ -34,6 +34,8 @@ public class InformationDisplay {
             bg = new Image("res/infoBg.png");
             pause = new Image("res/pauseButton.png");
             quit = new Image("res/quitButton.png");
+            SpriteSheet sheet = new SpriteSheet("res/fireplace.png",88,80);
+            fireplace = new Animation(sheet,200);
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -47,15 +49,18 @@ public class InformationDisplay {
         g.fillRect(8, 28, 100, 5);
         g.setColor(Color.white);
         g.fillRect(8, 28, 100 * (1 - (state.timer / 1500.0f)), 5);
+
         g.setColor(Color.white);
         g.drawString("Next Shape:", 8, 8);
         g.drawString("Score:" + state.score, 8, 36);
-        g.drawString("Timer: " + state.counter, 8, 55);
+        long minutes = (long) ((state.counter / 1000)  / 60);
+        int seconds = (int) ((state.counter / 1000) % 60);
+        g.drawString("Timer: " + minutes + ":" + seconds, 8, 55);
         //    drawButton(g, pauseButton, "Pause");
         // drawButton(g, quitButton, "Quit");
         g.drawImage(pause, pauseButton.x, pauseButton.y);
         g.drawImage(quit, quitButton.x, quitButton.y);
-
+        fireplace.draw(196,0);
         g.resetTransform();
     }
 
