@@ -3,6 +3,7 @@ package me.jack.LD40.level;
 import me.jack.LD40.Particle;
 import me.jack.LD40.Snowflake;
 import me.jack.LD40.level.tile.Shape;
+import me.jack.LD40.states.InGameState;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -71,8 +72,8 @@ public class GameBoard {
 
     }
 
-    public void update() {
-        checkForClear();
+    public void update(InGameState state) {
+        checkForClear(state);
         Iterator<Particle> iterator = p.iterator();
         while (iterator.hasNext()) {
             Particle p = iterator.next();
@@ -194,7 +195,7 @@ public class GameBoard {
         }
     }
 
-    public void checkForClear() {
+    public void checkForClear(InGameState state) {
         ArrayList<Run> found = new ArrayList<>();
         for (int y = 0; y != h; y++) {
             int length = 0;
@@ -246,22 +247,27 @@ public class GameBoard {
                 length = 0;
             }
         }
+        int j = 0;
 
         for (Run r : found) {
             if (r.type) {
                 for (int y = r.startY; y <= r.endY; y++) {
                     tiles[r.startX][y] = 0;
+                    j++;
                     for (int i = 0; i != 4; i++)
                         p.add(new Particle(r.startX * previousTileSize, y * previousTileSize));
                 }
             } else {
                 for (int x = r.startX; x <= r.endX; x++) {
                     tiles[x][r.startY] = 0;
+                    j++;
                     for (int i = 0; i != 4; i++)
                         p.add(new Particle(x * previousTileSize, r.startY * previousTileSize));
                 }
             }
         }
+        if (j != 0)
+            state.score += Math.pow(1.1, j);
     }
 
     public void clear() {

@@ -107,9 +107,10 @@ public class InGameState extends BasicGameState {
                 queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
             }
             queue.update(i, this);
-            board.update();
-            if (counter != 0)
-                score += (board.count() / counter) * 100;
+            board.update(this);
+            if (counter != 0 && board.count() != 0) {
+                score += Math.pow(board.count(),-1.0) / 10;
+            }
         }
     }
 

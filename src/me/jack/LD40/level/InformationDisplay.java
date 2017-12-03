@@ -52,7 +52,7 @@ public class InformationDisplay {
 
         g.setColor(Color.white);
         g.drawString("Next Shape:", 8, 8);
-        g.drawString("Score:" + state.score, 8, 36);
+        g.drawString("Score:" + Math.round(state.score), 8, 36);
         long minutes = (long) ((state.counter / 1000)  / 60);
         int seconds = (int) ((state.counter / 1000) % 60);
         g.drawString("Timer: " + minutes + ":" + seconds, 8, 55);
