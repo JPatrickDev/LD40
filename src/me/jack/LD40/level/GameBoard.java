@@ -48,7 +48,6 @@ public class GameBoard {
         fillRect(0, 0, w * tileSize, h * tileSize, drawSurface, new int[]{0, 0, 0, 0});
         g.translate(x, y);
         for (Snowflake f : snow) {
-            f.update();
             f.render(g);
         }
         for (int xx = 0; xx != w; xx++) {
@@ -83,6 +82,7 @@ public class GameBoard {
         Iterator<Snowflake> siterator = snow.iterator();
         while (siterator.hasNext()) {
             Snowflake p = siterator.next();
+            p.update();
             if (p.dead)
                 siterator.remove();
         }

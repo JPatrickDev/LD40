@@ -25,7 +25,7 @@ public class InGameState extends BasicGameState {
     private Shape currentShape;
     private Image currentShapeImage;
 
-    private Image gameOverImg;
+    private Image gameOverImg, pauseImg;
 
 
     @Override
@@ -40,6 +40,7 @@ public class InGameState extends BasicGameState {
         board = new GameBoard(80, 0, 8, 8, 400, 400);
         display = new InformationDisplay(0, 400, 480, 80);
         gameOverImg = new Image("res/gameOver.png");
+        pauseImg = new Image("res/pauseScreen.png");
     }
 
     public boolean paused = false;
@@ -56,11 +57,11 @@ public class InGameState extends BasicGameState {
             graphics.fillRect(0, 0, 480, 480);
             graphics.drawImage(gameOverImg, 240 - gameOverImg.getWidth() / 2, 240 - gameOverImg.getHeight() / 2);
             graphics.setColor(Color.white);
-            graphics.drawString(score + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(score + "")/2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
+            graphics.drawString(score + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(score + "") / 2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
             return;
         }
         if (paused) {
-            graphics.drawString("PAUSED", 240, 240);
+            graphics.drawImage(pauseImg, 240 - pauseImg.getWidth() / 2, 240 - pauseImg.getHeight() / 2);
         } else {
             Input i = gameContainer.getInput();
             int x = i.getMouseX();
@@ -169,7 +170,7 @@ public class InGameState extends BasicGameState {
             paused = false;
             return;
         }
-        if(gameOver){
+        if (gameOver) {
             gameOver = false;
             startGame();
             return;

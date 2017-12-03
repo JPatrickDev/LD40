@@ -40,7 +40,8 @@
     - Could do with improving
 - Shapes should be able to define their placement tile./
 - Game over popup with final score/
-- Main Menu
+- Main Menu/
+- Pause screen/
 - Sound
 - More particle types
     - Holly
