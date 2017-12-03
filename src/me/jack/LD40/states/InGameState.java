@@ -65,8 +65,10 @@ public class InGameState extends BasicGameState {
             if (!inQueueArea && currentShape != null) {
                 int tX = x - board.getX();
                 tX /= board.previousTileSize;
+                tX -= currentShape.selectX;
                 int tY = y + board.getY();
                 tY /= board.previousTileSize;
+                tY -= currentShape.selectY;
                 System.out.println(tX + ":" + tY);
                 if (board.canPlace(currentShape, tX, tY)) {
                     board.setHighlighted(tX, tY, currentShape);
@@ -126,6 +128,8 @@ public class InGameState extends BasicGameState {
             tX /= board.previousTileSize;
             int tY = y + board.getY();
             tY /= board.previousTileSize;
+            tX -= currentShape.selectX;
+            tY -= currentShape.selectY;
             System.out.println(tX + ":" + tY);
             if (board.canPlace(currentShape, tX, tY)) {
                 board.placeShape(tX, tY, currentShape);

@@ -9,6 +9,8 @@ import org.newdawn.slick.ImageBuffer;
 public class Shape {
 
     private int w, h;
+    public int selectX = 0;
+    public int selectY = 0;
     private int[][] shape;
 
     public static Shape[] shapes;
@@ -24,9 +26,16 @@ public class Shape {
 
         shapes[3] = new Shape(2, 4);
         shapes[3].setShape(new int[][]{{0, 0, 0, 1}, {1, 1, 1, 1}});
+        shapes[3].setSelectPos(1,0);
 
         shapes[4] = new Shape(3, 2);
         shapes[4].setShape(new int[][]{{0, 1}, {1, 1},{0,1}});
+        shapes[4].setSelectPos(1,0);
+    }
+
+    private void setSelectPos(int x, int y) {
+        this.selectX = x;
+        this.selectY = y;
     }
 
     public Shape(int w, int h) {

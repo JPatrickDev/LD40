@@ -38,7 +38,7 @@
 - Text is very hard to read inside the info display
 - Snow effect behind the board /
     - Could do with improving
-- Shapes should be able to define their placement tile.
+- Shapes should be able to define their placement tile./
 - Game over popup with final score
 - Main Menu
 - Sound
