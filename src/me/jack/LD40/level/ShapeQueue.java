@@ -93,8 +93,9 @@ public class ShapeQueue {
                 }
             }
             if (!found) {
-                if (r.y + r.height + 1 >= screenH)
+                if (r.y + r.height + 1 >= screenH) {
                     continue;
+                }
                 r.translate(0, container.vel);
                 container.vel += 1;
                 if (container.vel > 8)

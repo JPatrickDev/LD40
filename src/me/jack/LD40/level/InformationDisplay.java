@@ -79,6 +79,9 @@ public class InformationDisplay {
         if (pauseButton.contains(x, y)) {
             state.paused = true;
         }
+        if(quitButton.contains(x,y)){
+            System.exit(0);
+        }
     }
 
     public int getX() {

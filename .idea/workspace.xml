@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f8fa9bc-166b-4995-84e7-531d709ddc16" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/GameBoard.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/GameBoard.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/Run.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/Run.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeContainer.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeQueue.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeQueue.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/states/InGameState.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/states/InGameState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java" />
     </list>
     <ignored path="LD40.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="268" column="19" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
+              <caret line="269" column="44" selection-start-line="269" selection-start-column="44" selection-end-line="269" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InformationDisplay.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="InformationDisplay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="43" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.77557755">
+              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,6 +116,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ShapeQueue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="95" column="52" selection-start-line="95" selection-start-column="52" selection-end-line="95" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LD40.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/LD40.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InGameState.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InGameState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27722773">
-              <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,14 +182,14 @@
         <option value="$PROJECT_DIR$/ideas.txt" />
         <option value="$PROJECT_DIR$/src/me/jack/LD40/Particle.java" />
         <option value="$PROJECT_DIR$/src/me/jack/LD40/Snowflake.java" />
-        <option value="$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java" />
         <option value="$PROJECT_DIR$/src/me/jack/LD40/LD40.java" />
-        <option value="$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java" />
         <option value="$PROJECT_DIR$/src/me/jack/LD40/level/tile/Shape.java" />
-        <option value="$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java" />
-        <option value="$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java" />
         <option value="$PROJECT_DIR$/todo.txt" />
+        <option value="$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java" />
+        <option value="$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java" />
         <option value="$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java" />
+        <option value="$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java" />
+        <option value="$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java" />
       </list>
     </option>
   </component>
@@ -788,8 +810,8 @@
           <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4782#4783#0" expanded="true" />
-            <element signature="e#4842#4843#0" expanded="true" />
+            <element signature="e#4802#4803#0" expanded="true" />
+            <element signature="e#4862#4863#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -866,8 +888,8 @@
           <caret line="126" column="52" selection-start-line="126" selection-start-column="52" selection-end-line="126" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4782#4783#0" expanded="true" />
-            <element signature="e#4842#4843#0" expanded="true" />
+            <element signature="e#4802#4803#0" expanded="true" />
+            <element signature="e#4862#4863#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -876,6 +898,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="390" column="28" selection-start-line="390" selection-start-column="28" selection-end-line="390" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#13140#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2509#2510#0" expanded="false" />
+            <element signature="e#2538#2539#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="false" />
+            <element signature="e#2881#2882#0" expanded="false" />
+            <element signature="e#3193#3194#0" expanded="false" />
+            <element signature="e#3235#3236#0" expanded="false" />
+            <element signature="e#3547#3548#0" expanded="false" />
+            <element signature="e#3590#3591#0" expanded="false" />
+            <element signature="e#3917#3918#0" expanded="false" />
+            <element signature="e#3965#3966#0" expanded="false" />
+            <element signature="e#4292#4293#0" expanded="false" />
+            <element signature="e#4341#4342#0" expanded="false" />
+            <element signature="e#4757#4758#0" expanded="false" />
+            <element signature="e#4843#4844#0" expanded="false" />
+            <element signature="e#6800#6801#0" expanded="false" />
+            <element signature="e#6873#6874#0" expanded="false" />
+            <element signature="e#10065#10066#0" expanded="false" />
+            <element signature="e#10116#10117#0" expanded="false" />
+            <element signature="e#10219#10220#0" expanded="false" />
+            <element signature="e#10301#10302#0" expanded="false" />
+            <element signature="e#10402#10403#0" expanded="false" />
+            <element signature="e#10482#10483#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -960,6 +1008,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="390" column="28" selection-start-line="390" selection-start-column="28" selection-end-line="390" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#13140#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2509#2510#0" expanded="false" />
+            <element signature="e#2538#2539#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="false" />
+            <element signature="e#2881#2882#0" expanded="false" />
+            <element signature="e#3193#3194#0" expanded="false" />
+            <element signature="e#3235#3236#0" expanded="false" />
+            <element signature="e#3547#3548#0" expanded="false" />
+            <element signature="e#3590#3591#0" expanded="false" />
+            <element signature="e#3917#3918#0" expanded="false" />
+            <element signature="e#3965#3966#0" expanded="false" />
+            <element signature="e#4292#4293#0" expanded="false" />
+            <element signature="e#4341#4342#0" expanded="false" />
+            <element signature="e#4757#4758#0" expanded="false" />
+            <element signature="e#4843#4844#0" expanded="false" />
+            <element signature="e#6800#6801#0" expanded="false" />
+            <element signature="e#6873#6874#0" expanded="false" />
+            <element signature="e#10065#10066#0" expanded="false" />
+            <element signature="e#10116#10117#0" expanded="false" />
+            <element signature="e#10219#10220#0" expanded="false" />
+            <element signature="e#10301#10302#0" expanded="false" />
+            <element signature="e#10402#10403#0" expanded="false" />
+            <element signature="e#10482#10483#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -981,18 +1055,6 @@
           <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4782#4783#0" expanded="true" />
-            <element signature="e#4842#4843#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1035,30 +1097,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/LD40.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="268" column="19" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1073,10 +1115,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java">
+    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="43" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="43" />
+          <caret line="269" column="44" selection-start-line="269" selection-start-column="44" selection-end-line="269" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="52" selection-start-line="95" selection-start-column="52" selection-end-line="95" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1085,8 +1147,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27722773">
-          <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77557755">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

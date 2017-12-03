@@ -42,6 +42,7 @@ public class MainMenuState extends BasicGameState {
     public void mouseReleased(int button, int x, int y) {
         super.mouseReleased(button, x, y);
         if(play.contains(x,y)){
+            InGameState.sounds.get("place").play();
             go = true;
         }
     }

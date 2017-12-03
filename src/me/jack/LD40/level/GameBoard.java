@@ -266,8 +266,10 @@ public class GameBoard {
                 }
             }
         }
-        if (j != 0)
+        if (j != 0) {
             state.score += Math.pow(1.1, j);
+            InGameState.sounds.get("clear").play();
+        }
     }
 
     public void clear() {

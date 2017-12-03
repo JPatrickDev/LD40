@@ -11,6 +11,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -27,6 +28,8 @@ public class InGameState extends BasicGameState {
 
     private Image gameOverImg, pauseImg;
 
+    public static HashMap<String,Sound> sounds = new HashMap<>();
+
 
     @Override
     public int getID() {
@@ -36,6 +39,10 @@ public class InGameState extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         Particle.init();
+        sounds.put("place",new Sound("res/placement.wav"));
+        sounds.put("clear",new Sound("res/clear.wav"));
+        sounds.put("land",new Sound("res/land.wav"));
+        //sounds.get("bgIG").loop();
         queue = new ShapeQueue(0, 0, 80, gameContainer.getHeight() - 80, this);
         board = new GameBoard(80, 0, 8, 8, 400, 400);
         display = new InformationDisplay(0, 400, 480, 80);
@@ -57,7 +64,7 @@ public class InGameState extends BasicGameState {
             graphics.fillRect(0, 0, 480, 480);
             graphics.drawImage(gameOverImg, 240 - gameOverImg.getWidth() / 2, 240 - gameOverImg.getHeight() / 2);
             graphics.setColor(Color.white);
-            graphics.drawString(Math.round(score) + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(score + "") / 2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
+            graphics.drawString(Math.round(score) + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(Math.round(score) + "") / 2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
             return;
         }
         if (paused) {
@@ -118,6 +125,7 @@ public class InGameState extends BasicGameState {
     @Override
     public void mouseReleased(int button, int x, int y) {
         super.mousePressed(button, x, y);
+        sounds.get("place").play();
         if (paused) {
             paused = false;
             return;
@@ -155,6 +163,7 @@ public class InGameState extends BasicGameState {
                 currentShape = null;
                 currentShapeImage = null;
                 timer = 0;
+                //sounds.get("place").play();
             }
         }
     }
