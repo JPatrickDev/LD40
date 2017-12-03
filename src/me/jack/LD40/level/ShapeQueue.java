@@ -118,7 +118,7 @@ public class ShapeQueue {
         }
         if (fullCounter >= 5000) {
             System.out.println("Game over");
-            state.startGame();
+            state.gameOver();
         }
     }
 

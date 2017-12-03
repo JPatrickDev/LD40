@@ -81,7 +81,7 @@ public class GameBoard {
                 iterator.remove();
         }
         Iterator<Snowflake> siterator = snow.iterator();
-        while (iterator.hasNext()) {
+        while (siterator.hasNext()) {
             Snowflake p = siterator.next();
             if (p.dead)
                 siterator.remove();

@@ -25,6 +25,7 @@ public class InGameState extends BasicGameState {
     private Shape currentShape;
     private Image currentShapeImage;
 
+    private Image gameOverImg;
 
 
     @Override
@@ -38,15 +39,26 @@ public class InGameState extends BasicGameState {
         queue = new ShapeQueue(0, 0, 80, gameContainer.getHeight() - 80, this);
         board = new GameBoard(80, 0, 8, 8, 400, 400);
         display = new InformationDisplay(0, 400, 480, 80);
+        gameOverImg = new Image("res/gameOver.png");
     }
 
     public boolean paused = false;
+
+    public boolean gameOver = false;
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         queue.render(graphics);
         board.render(graphics);
         display.render(graphics, this);
+        if (gameOver) {
+            graphics.setColor(new Color(40, 40, 40, 200));
+            graphics.fillRect(0, 0, 480, 480);
+            graphics.drawImage(gameOverImg, 240 - gameOverImg.getWidth() / 2, 240 - gameOverImg.getHeight() / 2);
+            graphics.setColor(Color.white);
+            graphics.drawString(score + "", (240 - gameOverImg.getWidth() / 2) + (gameOverImg.getWidth() / 2 - graphics.getFont().getWidth(score + "")/2), (240 - gameOverImg.getHeight() / 2) + gameOverImg.getHeight() / 2 - graphics.getFont().getLineHeight() / 2);
+            return;
+        }
         if (paused) {
             graphics.drawString("PAUSED", 240, 240);
         } else {
@@ -85,7 +97,7 @@ public class InGameState extends BasicGameState {
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        if (!paused) {
+        if (!paused && !gameOver) {
             timer += i;
             counter += i;
             System.out.println(board.count() + ":" + counter);
@@ -157,6 +169,11 @@ public class InGameState extends BasicGameState {
             paused = false;
             return;
         }
+        if(gameOver){
+            gameOver = false;
+            startGame();
+            return;
+        }
         if (key == Keyboard.KEY_A) {
             queue.addShape(Shape.shapes[new Random().nextInt(Shape.shapes.length)]);
         }
@@ -173,5 +190,9 @@ public class InGameState extends BasicGameState {
         }
         currentShape = shape;
         currentShapeImage = shape.getPreview(16);
+    }
+
+    public void gameOver() {
+        gameOver = true;
     }
 }
