@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Connection" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4f8fa9bc-166b-4995-84e7-531d709ddc16" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/me/jack/LD40/states/AboutState.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/tile/Tile.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/tile/Tile.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/LD40.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/LD40.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/GameBoard.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/GameBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/InformationDisplay.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/InformationDisplay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/Run.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/Run.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeContainer.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeContainer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeQueue.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/level/ShapeQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/states/InGameState.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/states/InGameState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/states/MainMenuState.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/states/MainMenuState.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/Connection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/Snowflake.class" afterPath="$PROJECT_DIR$/out/production/LD40/me/jack/LD40/Snowflake.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/mainMenu.png" afterPath="$PROJECT_DIR$/res/mainMenu.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/LD40.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/LD40.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/Snowflake.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/Snowflake.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/level/GameBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/level/InformationDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/level/ShapeQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/states/InGameState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java" afterPath="$PROJECT_DIR$/src/me/jack/LD40/states/MainMenuState.java" />
     </list>
     <ignored path="LD40.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,7 +83,7 @@
       <file leaf-file-name="Snowflake.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/Snowflake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67161715">
+            <state vertical-scroll-proportion="0.21452145">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -402,10 +391,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14921875" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/slick.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -716,7 +705,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
@@ -1199,7 +1188,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/jack/LD40/Snowflake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67161715">
+        <state vertical-scroll-proportion="0.21452145">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1213,10 +1202,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>Connection</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
